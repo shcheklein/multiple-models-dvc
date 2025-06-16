@@ -1,0 +1,35 @@
+stages:
+  train:
+    foreach: ${models} # top level object (dict) from params.yaml
+    do:
+      cmd: python src/train.py ${key} data/${item.data} # key: item - key and object values from dict
+      deps:
+      - src/train.py
+      - data/${item.data}
+      outs:
+      - models/${key}
+
+artifacts:
+  model1:
+    path: models/model1
+    type: model
+    desc: Model description for model1
+    labels:
+    - xgboost
+  model2:
+    path: models/model2
+    type: model
+    desc: Model description for model2
+    labels:
+    - xgboost
+  model3:
+    path: models/model3
+    type: model
+    desc: Model description for model3
+    labels:
+    - xgboost
+metrics:
+- dvclive/model1/metrics.json
+- dvclive/model2/metrics.json
+- dvclive/model3/metrics.json
+

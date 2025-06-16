@@ -1,0 +1,11 @@
+common:
+  param1: 1
+  param2: 2
+models:
+  model1:
+    data: model1
+  model2:
+    data: model2
+  model3:
+    data: model3
+

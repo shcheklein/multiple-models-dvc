@@ -1,0 +1,6 @@
+[core]
+    remote = storage
+['remote "storage"']
+    url = azure://templates/storage
+    account_name = dvcpublic
+    allow_anonymous_login = true
