@@ -10,8 +10,9 @@ if len(sys.argv) != 3:
 data_path = sys.argv[2]
 model_name = sys.argv[1]
 
+print(f"Training model {model_name}")
 
-with Live(dir=Path("dvclive") / model_name) as live:
+with Live(dir=Path("dvclive") / "train" / model_name) as live:
     with open(data_path) as f:
         print(f"Reading data from {data_path}")
         data = f.read()

@@ -8,6 +8,13 @@ stages:
       - data/${item.data}
       outs:
       - models/${key}
+  eval:
+    foreach: ${models}
+    do:
+      cmd: python src/eval.py ${key} data/${item.data}
+      deps:
+      - src/eval.py
+      - models/${key}
 
 artifacts:
   model1:
@@ -32,4 +39,9 @@ metrics:
 - dvclive/model1/metrics.json
 - dvclive/model2/metrics.json
 - dvclive/model3/metrics.json
-
+- dvclive/train/model1/metrics.json
+- dvclive/train/model2/metrics.json
+- dvclive/train/model3/metrics.json
+- dvclive/eval/model1/metrics.json
+- dvclive/eval/model2/metrics.json
+- dvclive/eval/model3/metrics.json

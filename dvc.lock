@@ -9,8 +9,8 @@ stages:
       size: 12
     - path: src/train.py
       hash: md5
-      md5: a60b476dfba2d06d882b62cdc02a38cd
-      size: 783
+      md5: 6366ec9c7093bdbe9d54f4d674a70b69
+      size: 831
     outs:
     - path: models/model1
       hash: md5
@@ -25,8 +25,8 @@ stages:
       size: 12
     - path: src/train.py
       hash: md5
-      md5: a60b476dfba2d06d882b62cdc02a38cd
-      size: 783
+      md5: 6366ec9c7093bdbe9d54f4d674a70b69
+      size: 831
     outs:
     - path: models/model2
       hash: md5
@@ -41,10 +41,43 @@ stages:
       size: 12
     - path: src/train.py
       hash: md5
-      md5: a60b476dfba2d06d882b62cdc02a38cd
-      size: 783
+      md5: 6366ec9c7093bdbe9d54f4d674a70b69
+      size: 831
     outs:
     - path: models/model3
       hash: md5
       md5: 4b135a10fd73046768cc3451a8a84a75
       size: 12
+  eval@model1:
+    cmd: python src/eval.py model1 data/model1
+    deps:
+    - path: models/model1
+      hash: md5
+      md5: d1de636ad88beea7196d41788df61245
+      size: 12
+    - path: src/eval.py
+      hash: md5
+      md5: 5ae2e008b99f1024574295d2622fd7e1
+      size: 400
+  eval@model2:
+    cmd: python src/eval.py model2 data/model2
+    deps:
+    - path: models/model2
+      hash: md5
+      md5: 38be5bfe190fa5b69ecaf726efa4396e
+      size: 12
+    - path: src/eval.py
+      hash: md5
+      md5: 5ae2e008b99f1024574295d2622fd7e1
+      size: 400
+  eval@model3:
+    cmd: python src/eval.py model3 data/model3
+    deps:
+    - path: models/model3
+      hash: md5
+      md5: 4b135a10fd73046768cc3451a8a84a75
+      size: 12
+    - path: src/eval.py
+      hash: md5
+      md5: 5ae2e008b99f1024574295d2622fd7e1
+      size: 400
